@@ -35,5 +35,5 @@ fi
 ./clean.sh
 for i in $(seq 1 $n)
 do
-    docker run -v "$pwd/shared":/shared -tid zeu/lab2:latest
+    docker run -v "$pwd/shared":/shared -d zeu/lab2:latest
 done
