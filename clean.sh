@@ -1,3 +1,3 @@
 #!/bin/bash
-cd ./shared
-ls -A | xargs rm
+rm -r ./shared/*
+rm -r ./shared/.lock

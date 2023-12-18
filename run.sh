@@ -22,17 +22,10 @@ getPWD () {
     fi
 }
 
-setUp () {
-    [[ -d "script" ]] || mkdir script
-    [[ -d "shared" ]] || mkdir shared
-    [[ -f "/script/script.sh" ]] || cp "./script.sh" "./script/script.sh"
-}
 
 os=$(getOS)
 
 pwd=$(getPWD "$os")
-
-setUp
 
 n=$1
 if [[ ! $n ]]; then
@@ -42,5 +35,5 @@ fi
 ./clean.sh
 for i in $(seq 1 $n)
 do
-    docker run -v "$pwd/script":/script -v  "$pwd/shared":/shared -itd zeu/lab2:latest
+    docker run -v "$pwd/shared":/shared -tid zeu/lab2:latest
 done
